@@ -25,8 +25,6 @@ namespace vega.Controllers
         [HttpPost]
         public IActionResult CreatVehicle([FromBody] SaveVehicleResource vehicleResource)
         {
-            throw new Exception();
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
