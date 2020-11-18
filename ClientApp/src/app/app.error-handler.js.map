@@ -1,0 +1,1 @@
+{"version":3,"file":"app.error-handler.js","sourceRoot":"","sources":["app.error-handler.ts"],"names":[],"mappings":";;AAGA;IAEE,yBAAqB,aAA4B;QAA5B,kBAAa,GAAb,aAAa,CAAe;IAAG,CAAC;IAErD,qCAAW,GAAX,UAAY,KAAU;QAGpB,IAAI,CAAC,aAAa,CAAC,KAAK,CAAC,sBAAsB,EAAE,aAAa,EAAE;YAC9D,OAAO,EAAE,IAAI;YACb,aAAa,EAAE,oBAAoB;SACpC,CAAC,CAAC;IACH,CAAC;IACL,sBAAC;AAAD,CAAC,AAZD,IAYC;AAZY,0CAAe"}

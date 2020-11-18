@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -14,6 +14,7 @@ import { VehicleService } from '../services/vehicle.service';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppErrorHandler } from './app.error-handler';
 
 @NgModule({
   declarations: [
@@ -32,17 +33,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     ToastrModule.forRoot({
       timeOut: 10000,
-      positionClass: 'md-toast-top-right',
+      positionClass: 'top-right',
       preventDuplicates: true,
     }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'vehicles/new', component: VehicleFormComponent},
+      { path: 'vehicles/new', component: VehicleFormComponent },
+      { path: 'vehicles/:id', component: VehicleFormComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
   providers: [
+    {provide : ErrorHandler , useClass : AppErrorHandler},   
     VehicleService,
   ],
   bootstrap: [AppComponent],

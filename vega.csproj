@@ -24,6 +24,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.SqlServer.Types" Version="14.0.1016.290" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="underscore.TypeScript.DefinitelyTyped" Version="1.6.8" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +41,16 @@
     <Compile Remove="Migrations\20200611152811_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20200823114648_add-vehicles-features.cs" />
     <Compile Remove="Migrations\20200823114648_add-vehicles-features.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\app.error-handler.ts" />
+    <None Remove="ClientApp\src\app\models\Vehicle.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\app.error-handler.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\Vehicle.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
