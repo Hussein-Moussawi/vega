@@ -1,4 +1,6 @@
-﻿using vega.Models;
+﻿using System.Collections.Generic;
+using vega.Controllers.Resources;
+using vega.Models;
 
 namespace vega.Repositories
 {
@@ -7,5 +9,6 @@ namespace vega.Repositories
         void Add(Vehicle vehicle);
         Vehicle GetVehicle(int id, bool includeRelations = true);
         void Remove(Vehicle vehicle);
+        IEnumerable<Vehicle> GetVehicles(Filter filter);
     }
 }

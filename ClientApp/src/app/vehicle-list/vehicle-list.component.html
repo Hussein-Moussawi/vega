@@ -1,0 +1,38 @@
+<div class="container">
+  <div>
+    <input type=button onClick="location.href='vehicles/new'" value='New Vehicle'>
+  </div>
+  <div class="card card-body bg-light">
+    <div class="form-group">
+      <label for="make">makes</label>
+      <select id="make" class="form-control" [(ngModel)]="filter.makeId" (change)="PopulateVehicles()">
+        <option value=""></option>
+        <option *ngFor="let m of makes" value="{{m.id}}">{{m.name}}</option>
+      </select>
+    </div>
+
+    <button class="btn btn-default" (click)="ResetFilter()">Reset</button>
+  </div>
+
+  
+
+  <div>
+    <table class="table table-striped" *ngIf="vehicles">
+      <tr>
+        <th>Id</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Contact Name</th>
+        <th>Link</th>
+      </tr>
+      <tr *ngFor="let vehicle of vehicles">
+        <td>{{vehicle.id}} </td>
+        <td>{{vehicle.make.name}} </td>
+        <td>{{vehicle.model.name}} </td>
+        <td>{{vehicle.contact.name}} </td>
+        <td><a href="vehicles/{{vehicle.id}}">View</a></td>
+      </tr>
+    </table>
+  </div>
+
+  </div>

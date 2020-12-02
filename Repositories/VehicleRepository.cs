@@ -38,5 +38,19 @@ namespace vega.Repositories
         {
             context.Remove(vehicle);
         }
+
+        public IEnumerable<Vehicle> GetVehicles(Filter filter)
+        {
+            var vehicles = context.Vehicles
+                .Include(v => v.VehicleFeatures)
+                .ThenInclude(vf => vf.Feature)
+                .Include(v => v.Model)
+                .ThenInclude(m => m.Make).ToList();
+
+            if (filter.MakeId.HasValue)
+                vehicles = vehicles.Where(v => v.Model.MakeId == filter.MakeId.Value).ToList();
+
+            return vehicles;
+        }
     }
 }

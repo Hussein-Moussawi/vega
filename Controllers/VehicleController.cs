@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using vega.Controllers.Resources;
@@ -95,6 +96,14 @@ namespace vega.Controllers
             var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
 
             return Ok(result);
+        }
+
+        [HttpGet]
+        public IEnumerable<VehicleResource> GetVehicles([FromHeader]Filter filter)
+        {
+            var vehicles = repository.GetVehicles(filter);
+
+            return mapper.Map<IEnumerable<Vehicle>, IEnumerable<VehicleResource>>(vehicles);
         }
     }
 }
