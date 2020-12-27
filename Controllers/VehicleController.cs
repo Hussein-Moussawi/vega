@@ -99,7 +99,7 @@ namespace vega.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<VehicleResource> GetVehicles([FromHeader]Filter filter)
+        public IEnumerable<VehicleResource> GetVehicles([FromHeader]VehicleQuery filter)
         {
             var vehicles = repository.GetVehicles(filter);
 

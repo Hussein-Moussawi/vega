@@ -12,6 +12,12 @@ export class VehicleListComponent implements OnInit {
   vehicles: any;
   makes: any;
   filter: any = {};
+  columns = [
+    { title: 'Id' },
+    { title: 'Make', key: 'make', isSortable: true },
+    { title: 'Model', key: 'model', isSortable: true },
+    { title: 'Contact Name', key: 'contactName', isSortable: true }
+  ];
 
   constructor(private vehicleService : VehicleService) { }
 
@@ -29,6 +35,18 @@ export class VehicleListComponent implements OnInit {
 
   ResetFilter() {
     this.filter = {};
+    this.PopulateVehicles();
+  }
+
+  Sort(columnName) {
+    if (this.filter.SortBy === columnName) {
+      this.filter.IsSortByAsc = !this.filter.IsSortByAsc;
+    }
+    else {
+      this.filter.SortBy = columnName;
+      this.filter.IsSortByAsc = true;
+    }
+
     this.PopulateVehicles();
   }
 

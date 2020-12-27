@@ -9,6 +9,6 @@ namespace vega.Repositories
         void Add(Vehicle vehicle);
         Vehicle GetVehicle(int id, bool includeRelations = true);
         void Remove(Vehicle vehicle);
-        IEnumerable<Vehicle> GetVehicles(Filter filter);
+        IEnumerable<Vehicle> GetVehicles(VehicleQuery filter);
     }
 }

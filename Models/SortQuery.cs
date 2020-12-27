@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace vega.Models
 {
-    public class Filter
+    public class SortQuery
     {
-        public int? MakeId { get; set; }
+        public string SortBy { get; set; }
+
+        public bool IsSortByAsc { get; set; }
     }
 }

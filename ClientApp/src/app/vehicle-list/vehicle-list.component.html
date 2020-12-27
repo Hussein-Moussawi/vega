@@ -1,4 +1,5 @@
 <div class="container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div>
     <input type=button onClick="location.href='vehicles/new'" value='New Vehicle'>
   </div>
@@ -14,16 +15,25 @@
     <button class="btn btn-default" (click)="ResetFilter()">Reset</button>
   </div>
 
-  
+
 
   <div>
     <table class="table table-striped" *ngIf="vehicles">
-      <tr>
-        <th>Id</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Contact Name</th>
-        <th>Link</th>
+      <tr >
+        <th *ngFor="let c of columns">
+          <div *ngIf="c.isSortable" (click)="Sort(c.key)">
+            {{c.title}}
+            <i *ngIf="filter.SortBy === c.key"
+               class="fa"
+               [class.fa-sort-asc]="filter.IsSortByAsc"
+               [class.fa-sort-desc]="!filter.IsSortByAsc">
+            </i>
+
+          </div>
+           <div *ngIf="!c.isSortable">
+          {{c.title}}
+          </div>
+      </th>
       </tr>
       <tr *ngFor="let vehicle of vehicles">
         <td>{{vehicle.id}} </td>
@@ -35,4 +45,4 @@
     </table>
   </div>
 
-  </div>
+</div>
